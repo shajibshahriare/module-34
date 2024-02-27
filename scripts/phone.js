@@ -14,10 +14,10 @@ const displayPhones = phones => {
     const showAllBtn = document.getElementById('show-all-container')
 
 
-    if (phones.length > 12){
+    if (phones.length > 12) {
         showAllBtn.classList.remove('hidden')
     }
-    else{
+    else {
         showAllBtn.classList.add('hidden')
     }
 
@@ -42,9 +42,13 @@ const displayPhones = phones => {
      `;
         phoneContainer.appendChild(phoneCard)
     });
+
+    toggleLoadingSpinner(false)
+
 }
 
 const handleSearchBtn = () => {
+    toggleLoadingSpinner(true);
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value
     loadPhone(searchText)
@@ -52,4 +56,14 @@ const handleSearchBtn = () => {
 }
 
 
-// loadPhone()
+const toggleLoadingSpinner = (isLoading) => {
+    const loadingSpinner = document.getElementById('loading-spinner');
+
+    if(isLoading){
+        loadingSpinner.classList.remove('hidden')
+    }
+    else{
+        loadingSpinner.classList.add('hidden')
+    }
+    
+}
