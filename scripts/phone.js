@@ -10,6 +10,19 @@ const displayPhones = phones => {
 
     const phoneContainer = document.getElementById('phone-container')
     phoneContainer.textContent = ''
+
+    const showAllBtn = document.getElementById('show-all-container')
+
+
+    if (phones.length > 12){
+        showAllBtn.classList.remove('hidden')
+    }
+    else{
+        showAllBtn.classList.add('hidden')
+    }
+
+    phones = phones.slice(0, 12)
+
     phones.forEach(phone => {
         console.log(phone)
         const phoneCard = document.createElement('div')
